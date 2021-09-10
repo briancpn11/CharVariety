@@ -1,6 +1,6 @@
 #define BOOST_TEST_MODULE MyTest
-#include <boost/test/included/unit_test.hpp> //single-header
-#include "charVarietyHelpers.h" // project being tested
+#include <boost/test/included/unit_test.hpp> 
+#include "charVarietyHelpers.h" 
 namespace utf = boost::unit_test;
 
 #define DELTA 1e-6
