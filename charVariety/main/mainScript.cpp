@@ -123,5 +123,5 @@ int main(){
     fprintf(ofp, "Time taken: %f seconds\n", time_taken_sec);
     // fprintf(ofp, "cMax = %d, bad_coMax = %d\n", cMax, bad_coMax);
     fprintf(ofp, "\n\n\n");
-return 0;
+    return 0;
 }
