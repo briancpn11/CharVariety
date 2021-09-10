@@ -48,7 +48,11 @@ typedef IntervalNS::Interval Interval;
 // }
 // end junk
 
-double sqr(double);
+// double sqr(double);
+
+inline double sqr(double a){
+  	return a*a;
+}
 
 // define a pair of point (x, y, z) in R^3 and a tangent vector (v1, v2, v3)
 class Pair{

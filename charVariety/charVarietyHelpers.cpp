@@ -4,10 +4,6 @@
 
 #define COMAX 30 // max number of iterations in a Newton scheme
 
-double sqr(double a){
-  	return a*a;
-}
-
 // Actions at the tangent space level
 Pair DTX(Pair pr){
 	Pair prpr(pr.x, pr.z, (pr.x)*(pr.z) - (pr.y), 
