@@ -10,7 +10,7 @@
 #define r 0.01
 #define rr 0.01
 
-int nMap = 16, nIter[] = {5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5}, tot = 0;
+int nMap = 16, nIter[] = {5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5};
 int maps[][5] ={{0, 0, 0, 0, 1}, 
                 {0, 0, 0, 1, 1}, 
                 {0, 0, 1, 1, 1}, 
@@ -34,26 +34,26 @@ int maps[][5] ={{0, 0, 0, 0, 1},
 FILE *ofp = fopen("result/minAvgExpansionGrid.txt", "a");
 
 int main(){
+    int tot = 0;
     double k = 3.99, c = 10000000000000;
     double ans_x, ans_y, ans_z, m_z[10], cand, tem;
     Matrix act[50];
 
-    time_t tttt;
-    time(&tttt);
-    printf("Program started on: %s", ctime(&tttt));
+    time_t timeNow;
+    time(&timeNow);
+    printf("Program started on: %s", ctime(&timeNow));
 
-    clock_t time_taken;
-
-    time_taken = clock();
+    clock_t startTime;
+    startTime = clock();
 
     int thread_id, ii, i_bound=4.0/r; double t1, t2;
-    #pragma omp parallel private(thread_id, t1, t2) num_threads(4)
+    #pragma omp parallel private(thread_id, t1, t2) num_threads(1)
     {
         t1 = omp_get_wtime();
         #pragma omp for private(m_z, cand, tem, act) reduction(min: c) reduction(+: tot) nowait
         for (ii = 0; ii < i_bound; ii++){
             double m_x = double(ii)*r - 2;
-        // for (double m_x = -2; m_x < 2; m_x += r){
+        // for (double m_x = -2; m_x < 2; m_x += r){            // swapped from this to facilitate the omp syntax
             for (double m_y = -2; m_y < 2; m_y += r){
                 double disc = sqr(m_x*m_y) - 4*(sqr(m_x) + sqr(m_y) - k);
                 if (disc > EPS){
@@ -74,15 +74,15 @@ int main(){
                                                                     
                                     double AA = 2*(pr.x) - (pr.y)*(pr.z), BB = 2*(pr.y) - (pr.x)*(pr.z), CC = 2*(pr.z) - (pr.x)*(pr.y);
                                     if (compMax(CC, AA, BB)){
-                                        double sst = 1 / sqrt(std::abs(C * CC));
+                                        double sst = 1 / sqrt(absVal(C * CC));
                                         act[map_id] = {pr.v2 * sst, ps.v2 * sst, -pr.v1 * sst, -ps.v1 * sst};
                                     } 
                                     else if (compMax(BB, AA, CC)){
-                                        double sst = 1 / sqrt(std::abs(B * BB));
+                                        double sst = 1 / sqrt(absVal(B * BB));
                                         act[map_id] = {pr.v1 * sst, ps.v1 * sst, -pr.v3 * sst, -ps.v3 * sst};
                                     } 
                                     else {
-                                        double sst = 1 / sqrt(std::abs(A * AA));
+                                        double sst = 1 / sqrt(absVal(A * AA));
                                         act[map_id] = {pr.v3 * sst, ps.v3 * sst, -pr.v2 * sst, -ps.v2 * sst};
                                     }
                                 }
@@ -106,8 +106,8 @@ int main(){
         printf("Thread: %d, Time taken: %.3f sec\n", thread_id, t2 - t1);
     }
 	
-    time_taken = clock() - time_taken;
-    double time_taken_sec = (double)time_taken / CLOCKS_PER_SEC;
+    double timeTaken = clock() - startTime;
+    double time_taken_sec = (double)timeTaken / CLOCKS_PER_SEC;
 
     time_t ttt;
     time(&ttt);

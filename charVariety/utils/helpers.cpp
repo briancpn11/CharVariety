@@ -65,7 +65,7 @@ double minAvgExpansionNewton(Matrix* A, int nMatrix){
         angleNew = A[j].contractDir();
         angleOld = angleNew - 1;
         co = 0;
-        while (std::abs(angleNew - angleOld) > EPS && co < MAXITER){
+        while (absVal(angleNew - angleOld) > EPS && co < MAXITER){
             angleOld = angleNew;
             dTotalExpSq = 0.0; 
             ddTotalExpSq = 0.0;
