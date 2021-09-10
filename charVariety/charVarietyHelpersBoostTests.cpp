@@ -7,15 +7,6 @@ namespace utf = boost::unit_test;
 
 #define DELTA 1e-6
 
-BOOST_AUTO_TEST_CASE(testSquare, * utf::tolerance(DELTA))
-{
-    // test for sqr
-    double param = -1.2;
-    double foundSquare = sqr(param);
-    double expectedSquare = 1.44;
-    BOOST_TEST(expectedSquare == foundSquare);
-}
-
 BOOST_AUTO_TEST_CASE(testTangentSpaceAction)
 {   
     Pair p(1, 2, 3, 4, 5, 6);
@@ -149,7 +140,6 @@ BOOST_AUTO_TEST_CASE(testMinAvgExpansion, * utf::tolerance(DELTA))
         BOOST_TEST(expectedMinAvgExps[i] == foundMinAvgExp);
     }
 }
-
 
 // ---------template-----------
 // BOOST_AUTO_TEST_CASE(my_boost_test4)

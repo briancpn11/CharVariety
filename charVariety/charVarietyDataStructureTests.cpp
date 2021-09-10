@@ -7,6 +7,15 @@ namespace utf = boost::unit_test;
 
 #define DELTA 1e-6
 
+BOOST_AUTO_TEST_CASE(testSquare, * utf::tolerance(DELTA))
+{
+    // test for sqr
+    double param = -1.2;
+    double foundSquare = sqr(param);
+    double expectedSquare = 1.44;
+    BOOST_TEST(expectedSquare == foundSquare);
+}
+
 BOOST_AUTO_TEST_CASE(testMatrixMethods, * utf::tolerance(DELTA))
 {
     // test for Matrix product

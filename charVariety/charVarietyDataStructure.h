@@ -144,7 +144,4 @@ class DiagonalMatrix: public Matrix{
     	DiagonalMatrix(double lambda): Matrix(lambda, 0, 0, 1/lambda){}
 };
 
-
-
-
 #endif
