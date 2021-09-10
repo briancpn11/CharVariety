@@ -2,7 +2,7 @@
 
 #include "helpers.h"
 
-#define COMAX 30 // max number of iterations in a Newton scheme
+#define MAXITER 30 // max number of iterations in a Newton scheme
 
 // Actions at the tangent space level
 Pair DTX(Pair pr){
@@ -65,7 +65,7 @@ double minAvgExpansionNewton(Matrix* A, int nMatrix){
 		angleNew = A[j].contractDir();
 		angleOld = angleNew - 1;
 		co = 0;
-		while (std::abs(angleNew - angleOld) > EPS && co < COMAX){
+		while (std::abs(angleNew - angleOld) > EPS && co < MAXITER){
 			angleOld = angleNew;
 			dTotalExpSq = 0.0; 
 			ddTotalExpSq = 0.0;
