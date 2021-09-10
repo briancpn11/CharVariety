@@ -1,4 +1,4 @@
-// charVariety/utils/helpersTests.cpp
+// charVariety/unittest/helpersTests.cpp
 
 #define BOOST_TEST_MODULE MyTest
 #include <boost/test/included/unit_test.hpp> 

@@ -1,4 +1,4 @@
-// charVariety/dataStructureTests.cpp
+// charVariety/unittest/dataStructureTests.cpp
 
 #define BOOST_TEST_MODULE MyTest
 #include <boost/test/included/unit_test.hpp> 

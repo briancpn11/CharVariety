@@ -47,7 +47,7 @@ int main(){
     startTime = clock();
 
     int thread_id, ii, i_bound=4.0/r; double t1, t2;
-    #pragma omp parallel private(thread_id, t1, t2) num_threads(1)
+    #pragma omp parallel private(thread_id, t1, t2) num_threads(4)
     {
         t1 = omp_get_wtime();
         #pragma omp for private(m_z, cand, tem, act) reduction(min: c) reduction(+: tot) nowait
@@ -109,10 +109,10 @@ int main(){
     double timeTaken = clock() - startTime;
     double time_taken_sec = (double)timeTaken / CLOCKS_PER_SEC;
 
-    time_t ttt;
-    time(&ttt);
+    time_t timeStart;
+    time(&timeStart);
 
-    fprintf(ofp, "Program run on: %s", ctime(&ttt));
+    fprintf(ofp, "Program run on: %s", ctime(&timeStart));
     fprintf(ofp, "Minimum average expansion: %f\n", c);
     fprintf(ofp, "Other parameters: \n");
     fprintf(ofp, " k-2: %f\n", k-2);

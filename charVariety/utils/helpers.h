@@ -1,7 +1,7 @@
 // charVariety/utils/helpers.h
 
-#ifndef CHARVARIETY_HELPERS
-#define CHARVARIETY_HELPERS
+#ifndef CHARVARIETY_UTILS_HELPERS_H
+#define CHARVARIETY_UTILS_HELPERS_H
 
 #include "dataStructure.h"
 

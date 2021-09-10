@@ -1,7 +1,7 @@
 // charVariety/utils/dataStructure.h
 
-#ifndef CHARVARIETY_DATA_STRUCTURE
-#define CHARVARIETY_DATA_STRUCTURE
+#ifndef CHARVARIETY_UTILS_DATASTRUCTURE_H
+#define CHARVARIETY_UTILS_DATASTRUCTURE_H
 
 #include <boost/numeric/interval.hpp>
 #include <iostream>
