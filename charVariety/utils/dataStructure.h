@@ -1,4 +1,4 @@
-// charVariety/dataStructure.h
+// charVariety/utils/dataStructure.h
 
 #ifndef CHARVARIETY_DATA_STRUCTURE
 #define CHARVARIETY_DATA_STRUCTURE
@@ -52,6 +52,10 @@ typedef IntervalNS::Interval Interval;
 
 inline double sqr(double a){
   	return a*a;
+}
+
+inline bool compMax(double a, double b, double c){
+    return std::abs(a) >= std::abs(b) && std::abs(a) >= std::abs(c);
 }
 
 // define a pair of point (x, y, z) in R^3 and a tangent vector (v1, v2, v3)
@@ -123,7 +127,7 @@ class Matrix{
 			double c1 = coeff1();
 			double c2 = coeff2();
 			
-			double angle1 = abs(c1)<EPS ? PI/2 : atan(c2/c1);
+			double angle1 = std::abs(c1)<EPS ? PI/2 : atan(c2/c1);
 			double angle2 = angle1 + PI;
 			angle1 = angle1<0 ? angle1+2*PI : angle1;
 			double f1 = c1*cos(angle1) + c2*sin(angle1);

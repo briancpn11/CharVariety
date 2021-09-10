@@ -16,6 +16,19 @@ BOOST_AUTO_TEST_CASE(testSquare, * utf::tolerance(DELTA))
     BOOST_TEST(expectedSquare == foundSquare);
 }
 
+BOOST_AUTO_TEST_CASE(testCompMax, * utf::tolerance(DELTA))
+{
+    // test for sqr
+    double a = 1e-5, b = -1e-4, c = 1e-3;
+    bool foundABC = compMax(a, b, c);
+    bool foundBCA = compMax(b, c, a);
+    bool foundCAB = compMax(c, a, b);
+    bool expectedABC = 0, expectedBCA = 0, expectedCAB = 1;
+    BOOST_TEST(expectedABC == foundABC);
+    BOOST_TEST(expectedBCA == foundBCA);
+    BOOST_TEST(expectedCAB == foundCAB);
+}
+
 BOOST_AUTO_TEST_CASE(testMatrixMethods, * utf::tolerance(DELTA))
 {
     // test for Matrix product

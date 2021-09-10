@@ -1,4 +1,4 @@
-// charVariety/helpers.h
+// charVariety/utils/helpers.h
 
 #ifndef CHARVARIETY_HELPERS
 #define CHARVARIETY_HELPERS

@@ -1,4 +1,4 @@
-//charVariety/helpers.cpp
+//charVariety/utils/helpers.cpp
 
 #include "helpers.h"
 
@@ -65,7 +65,7 @@ double minAvgExpansionNewton(Matrix* A, int nMatrix){
 		angleNew = A[j].contractDir();
 		angleOld = angleNew - 1;
 		co = 0;
-		while (abs(angleNew - angleOld) > EPS && co < COMAX){
+		while (std::abs(angleNew - angleOld) > EPS && co < COMAX){
 			angleOld = angleNew;
 			dTotalExpSq = 0.0; 
 			ddTotalExpSq = 0.0;
