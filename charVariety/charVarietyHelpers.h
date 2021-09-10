@@ -14,6 +14,4 @@ Pair action(Pair aa, int* maps, int nIter);
 double avgLogExpansion(Matrix* A, int nMatrix, double angle);
 double minAvgExpansionNewton(Matrix* A, int nMatrix);
 
-
-
 #endif
