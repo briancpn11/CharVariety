@@ -6,6 +6,7 @@
 namespace utf = boost::unit_test;
 
 #define DELTA 1e-6
+#define DELTA_TEMP 1e-2
 
 BOOST_AUTO_TEST_CASE(testTangentSpaceAction)
 {   
@@ -123,6 +124,22 @@ BOOST_AUTO_TEST_CASE(testAvgExpansion, * utf::tolerance(DELTA))
         foundAvgExps[i] = avgLogExpansion(A, nMatrix, angles[i]);
         BOOST_TEST(expectedAvgExps[i] == foundAvgExps[i]);
         BOOST_TEST(expectedAvgExpCals[i] == foundAvgExps[i]);
+    }
+}
+
+BOOST_AUTO_TEST_CASE(testMinAvgExpansionGrid, * utf::tolerance(DELTA_TEMP))
+{   
+    double rr = DELTA_TEMP;
+    DiagonalMatrix m1(2.0), m2(0.5);
+    RotationMatrix m3(PI/2);
+    Matrix m4(2.0, 1.0, 1.0, 2.0), 
+           m5(2.0, -1.0, -1.0, 2.0);
+    Matrix ms[][3] = {{m1}, {m1, m2}, {m3}, {m4}, {m4, m5}, {m1, m3}, {m1, m4, m5}};
+    int nMatrices = 7, nMatrix[] = {1, 2, 1, 1, 2, 2, 3};
+    double expectedMinAvgExps[] = {log(0.5), 0.0, 0.0, 0.0, 0.5*log(3.0), 0.5*log(0.5), log(2.5)/3};
+    for (int i = 0; i < nMatrices; i++){
+        double foundMinAvgExp = minAvgExpansionGrid(ms[i], nMatrix[i], rr);
+        BOOST_TEST(expectedMinAvgExps[i] == foundMinAvgExp);
     }
 }
 

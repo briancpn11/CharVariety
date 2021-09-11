@@ -51,6 +51,14 @@ double avgLogExpansion(Matrix* A, int nMatrix, double angle){
     return ans / double(nMatrix);
 }
 
+double minAvgExpansionGrid(Matrix* A, int nMatrix, double rr){
+    double minAvgExpansion = 100000.0;
+    for (double theta = 0; theta < PI; theta += rr){
+        minAvgExpansion = std::min(minAvgExpansion, avgLogExpansion(A, nMatrix, theta));
+    }
+    return minAvgExpansion;
+}
+
 // Find the minimum of average expansion of a list of matrices
 double minAvgExpansionNewton(Matrix* A, int nMatrix){
 
