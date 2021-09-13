@@ -10,7 +10,7 @@ The goal is to implement the algorithm in Chapter 8 which allows one to verify <
 
 See Theorem C and D for key theoretical consequences of <u>uniform expansion</u> and motivation. 
 
-</br></br></br>
+</br>
 
 ## Versions
 
@@ -44,7 +44,7 @@ g++ -g .\main\mainScript.cpp .\utils\helpers.cpp -o .\main\mainScript -fopenmp
 
 To make sure the result is not affected by floating point error, all the arithmetic should be done using interval arithmetic. Currently the plan is to use the `boost/numeric/interval` package. 
 
-</br></br></br>
+</br>
 
 ## Results
 
