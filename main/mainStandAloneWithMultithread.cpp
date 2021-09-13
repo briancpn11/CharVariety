@@ -192,7 +192,7 @@ int code[][5] = {
 {3, 3, 3, 2, 2}, 
 {3, 3, 3, 3, 2}};
 
-FILE *ofp = fopen("result/minAvgExpansionGridOLDOLD.txt", "a");
+FILE *ofp = fopen("result/minAvgExpansionGridOriginal.txt", "a");
 
 //Apply the map (id) on aa = (x, y, z, vv1, vv2, vv3)
 pair action(pair aa, int id){
