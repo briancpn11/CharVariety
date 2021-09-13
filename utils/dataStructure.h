@@ -4,6 +4,7 @@
 #define CHARVARIETY_UTILS_DATASTRUCTURE_H
 
 #include <iostream>
+#include <cmath>
 
 #define EPS 1e-6
 #define PI 3.1415926535
