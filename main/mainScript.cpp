@@ -7,10 +7,13 @@
 #include <time.h>
 #include <omp.h>
 
-#define r 0.002
-#define rr 0.01
+#define r 0.1 // gridpoints distance in the surface direction
+#define rr 0.01 // gridpoints distance in the tangent space direction
 
+// nMap is the number of maps considered (support of mu), nIter is the number of compositions in each map.
 int nMap = 16, nIter[] = {5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5};
+// maps contain the choices of all the maps. 0 = X, 1 = Y, 2 = X^(-1), 3 = Y^(-1). 
+// Example: {0, 0, 0, 0, 0} means the composition of the map X with itself five times. 
 int maps[][5] ={{0, 0, 0, 0, 1}, 
                 {0, 0, 0, 1, 1}, 
                 {0, 0, 1, 1, 1}, 
@@ -122,7 +125,6 @@ int main(){
     fprintf(ofp, " Total number of grid points on the surface: %d\n", tot);
     fprintf(ofp, "The point where the min average expansion occur: P = (%f, %f, %f)\n", ans_x, ans_y, ans_z);
     fprintf(ofp, "Time taken: %f seconds\n", time_taken_sec);
-    // fprintf(ofp, "cMax = %d, bad_coMax = %d\n", cMax, bad_coMax);
     fprintf(ofp, "\n\n\n");
     return 0;
 }

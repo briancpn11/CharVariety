@@ -4,14 +4,13 @@
 #include <time.h>
 #include <omp.h>
 
-#define N 10
 #define Pi 3.14159
 #define sqrttwo 0.70710678118
-//#define iterate 1
-#define eps 0.000001
-#define coMax 30
-#define r 0.002
-#define rr 0.01
+#define eps 0.000001 // error tolerance
+#define coMax 30 
+#define r 0.1 // gridpoints distance in the surface direction
+#define rr 0.01 // gridpoints distance in the tangent space direction
+#define nThreads 2 // number of threads used in multithreading
 
 int cMax = 0;
 int bad_coMax = 0;
@@ -223,7 +222,7 @@ int main(){
 	
 	time_taken = clock();
 
-	#pragma omp parallel private(thread_id, t1, t2) num_threads(4)
+	#pragma omp parallel private(thread_id, t1, t2) num_threads(nThreads)
 	{
 		t1 = omp_get_wtime();
 		#pragma omp for private(j, rt, cand, tem, act) reduction(min: c) reduction(+: bad_coMax) reduction(+: tot) nowait
