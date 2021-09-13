@@ -1,0 +1,9 @@
+Newton
+Program run on: Mon Sep 13 15:34:37 2021
+k-2: 1.990000 c: 0.531619 r: 0.100000 rr: 0.010000 tot: 5190
+P = (1.700000, 1.700535, 0.900000)
+Time taken: 0.714000 seconds
+cMax = 30, bad_coMax = 1519
+
+
+

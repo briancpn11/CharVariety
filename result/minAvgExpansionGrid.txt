@@ -1,0 +1,12 @@
+Program run on: Sun Sep 12 22:03:07 2021
+Minimum average expansion: 0.362195
+Other parameters: 
+ k-2: 1.990000
+ Spacing in the surface directions: r: 0.002000
+ Spacing in the tangent direction: rr: 0.010000
+ Total number of grid points on the surface: 12924594
+The point where the min average expansion occur: P = (1.706000, 1.707340, 0.922000)
+Time taken: 2232.808000 seconds
+
+
+
