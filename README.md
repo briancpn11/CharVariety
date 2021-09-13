@@ -16,28 +16,28 @@ See Theorem C and D for key theoretical consequences of <u>uniform expansion</u>
 
 Currently there are three versions of the code:
 
-1. <b>Basic version</b>: `main/mainStandAloneScript.cpp`
+1. <b>Latest Version (as of September 13th, 2021) </b>: `main/mainScript.cpp`
 
-This can be compiled without any extra package other than basic g++. To compile on terminal: at the CharVariety directory, use
+This is the latest version of the script. To compile:
+
+```bash
+g++ -g .\main\mainScript.cpp .\utils\helpers.cpp -o .\main\mainScript -fopenmp
+```
+
+2. <b>Basic version</b>: `main/mainStandAloneScript.cpp`
+
+This can be compiled on its own without any extra package or modules other than basic g++. To compile on terminal: at the CharVariety directory, use
 
 ```bash
 g++ -o .\main\mainStandAloneScript .\main\mainStandAloneScript.cpp
 ```
 
-2. <b>With multithreading</b>: `main/mainStandAloneWithMultithread.cpp`
+3. <b>Basic version with multithreading</b>: `main/mainStandAloneWithMultithread.cpp`
 
 This is the same as the basic version except it allows for multithreading using OpenMP. To compile:
 
 ```bash
 g++ -o .\main\mainStandAloneWithMultithread .\main\mainStandAloneWithMultithread.cpp -fopenmp
-```
-
-3. <b>Latest Version (as of September 13th, 2021) </b>: `main/mainScript.cpp`
-
-I am in the process of refactoring the script to make it more readable and potentially faster. This is currently the latest version. To compile:
-
-```bash
-g++ -g .\main\mainScript.cpp .\utils\helpers.cpp -o .\main\mainScript -fopenmp
 ```
 
 4. <b>Interval Arithmetic</b>: to come
