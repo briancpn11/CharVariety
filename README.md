@@ -18,7 +18,7 @@ Currently there are three versions of the code:
 
 1. <b>Latest Version (as of September 13th, 2021) </b>: `main/mainScript.cpp`
 
-This is the latest version of the script. To compile:
+This is the latest version of the script. To compile on terminal: at the CharVariety directory, use
 
 ```bash
 g++ -g .\main\mainScript.cpp .\utils\helpers.cpp -o .\main\mainScript -fopenmp
@@ -26,7 +26,7 @@ g++ -g .\main\mainScript.cpp .\utils\helpers.cpp -o .\main\mainScript -fopenmp
 
 2. <b>Basic version</b>: `main/mainStandAloneScript.cpp`
 
-This can be compiled on its own without any extra package or modules other than basic g++. To compile on terminal: at the CharVariety directory, use
+This can be compiled on its own without any extra package or modules other than basic g++. To compile:
 
 ```bash
 g++ -o .\main\mainStandAloneScript .\main\mainStandAloneScript.cpp
