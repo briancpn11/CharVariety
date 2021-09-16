@@ -64,4 +64,4 @@ Time taken: 1.879000 seconds
 The ''Minimum average expansion'' is positive means that uniform expansion is verified on the grid points. 
 
 ## Unit tests
-There are unit tests in the `unittest` directory, implemented using Boost.Test (I am using Boost Version 1.75.0).
+There are unit tests in the `test` directory, implemented using Boost.Test (I am using Boost Version 1.75.0).
