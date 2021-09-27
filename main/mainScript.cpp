@@ -7,8 +7,9 @@
 #include <time.h>
 #include <omp.h>
 
-#define r 0.1 // gridpoints distance in the surface direction
+#define r 0.001 // gridpoints distance in the surface direction
 #define rr 0.01 // gridpoints distance in the tangent space direction
+#define nThreads 16 // number of threads used in multithreading
 
 // nMap is the number of maps considered (support of mu), nIter is the number of compositions in each map.
 int nMap = 16, nIter[] = {5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5};
@@ -50,7 +51,7 @@ int main(){
     startTime = clock();
 
     int thread_id, ii, i_bound=4.0/r; double t1, t2;
-    #pragma omp parallel private(thread_id, t1, t2) num_threads(4)
+    #pragma omp parallel private(thread_id, t1, t2) num_threads(nThreads)
     {
         t1 = omp_get_wtime();
         #pragma omp for private(m_z, cand, tem, act) reduction(min: c) reduction(+: tot) nowait
@@ -125,6 +126,7 @@ int main(){
     fprintf(ofp, " Total number of grid points on the surface: %d\n", tot);
     fprintf(ofp, "The point where the min average expansion occur: P = (%f, %f, %f)\n", ans_x, ans_y, ans_z);
     fprintf(ofp, "Time taken: %f seconds\n", time_taken_sec);
+    fprintf(ofp, "Number of threads: %d\n", nThreads);
     fprintf(ofp, "\n\n\n");
     return 0;
 }
